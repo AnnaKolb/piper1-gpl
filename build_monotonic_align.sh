@@ -3,8 +3,11 @@ set -eo pipefail
 
 this_dir="$( cd "$( dirname "$0" )" && pwd )"
 
-if [ -d "${this_dir}/.venv" ]; then
-    source "${this_dir}/.venv/bin/activate"
+# use .venv311 if present, else .venv, else assume current shell venv
+if [ -f "${this_dir}/.venv311/bin/activate" ]; then
+  source "${this_dir}/.venv311/bin/activate"
+elif [ -f "${this_dir}/.venv/bin/activate" ]; then
+  source "${this_dir}/.venv/bin/activate"
 fi
 
 cd "${this_dir}/src/piper/train/vits/monotonic_align"

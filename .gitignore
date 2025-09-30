@@ -1,22 +1,42 @@
+# macOS / editors
 .DS_Store
-.idea
+.vscode/
+.idea/
+
+# Python env & cache
+.venv*/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+
+# Builds / compiled
+build/
+dist/
+*.egg-info/
+_skbuild/
+*.so
+*.dylib
+
+# Training artifacts & big stuff (DO NOT COMMIT)
+lightning_logs/
+cache/
+cache_fresh/
+*.ckpt
+*.onnx
+models/
+piper-checkpoints/
+corpus/
+wavs/
+audio/
+unvalidated_sentences.tsv
+
+# Cython-generated (keep .pyx, ignore outputs)
+src/piper/train/vits/monotonic_align/core.c
+src/piper/train/vits/monotonic_align/monotonic_align/
+
+# Logs / temp
 *.log
 tmp/
-
-*.py[cod]
-*.egg
-build
-htmlcov
-
-dist/
-local/
-.venv/
-espeak-ng-data/
-
-_skbuild/
-*.egg-info/
-
-src/piper/train/vits/monotonic_align/core.c
-*.so
-
-lightning_logs/
+EOF

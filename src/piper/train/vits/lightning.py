@@ -285,6 +285,17 @@ class VitsModel(L.LightningModule):
 
         return super().on_validation_end()
 
+    # --- tiny QoL logs ---
+    def on_train_epoch_start(self):
+        # Clear, human-visible marker when an epoch begins
+        print(f"\n--- Epoch {self.current_epoch} start ---\n")
+
+    def on_train_epoch_end(self):
+        # Clear, human-visible marker when an epoch ends
+        # (also shows global_step so you can correlate with the progress bar)
+        step = getattr(self.trainer, "global_step", None)
+        print(f"\n=== Epoch {self.current_epoch} done (global_step={step}) ===\n")
+
     def configure_optimizers(self):
         optimizers = [
             torch.optim.AdamW(

@@ -11,5 +11,9 @@ python -m piper.train fit \
   --data.batch_size 1 \
   --data.num_workers 0 \
   --trainer.accelerator cpu \
-  --trainer.max_epochs 2 \
-  --trainer.num_sanity_val_steps 0
+  --trainer.max_epochs 3000 \
+  --trainer.num_sanity_val_steps 0 \
+  --ckpt_path ../piper-checkpoints/en/en_US/lessac/medium/epoch=2164-step=1355540.ckpt
+
+
+
